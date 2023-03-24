@@ -18,5 +18,25 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        \App\Models\Player::factory(22)->create();
+
+        \App\Models\Team::factory()->create([
+            'name' => 'Barcelona',
+            'shortname' => 'BAR',
+        ]);
+
+        \App\Models\Team::factory()->create([
+            'name' => 'Real Madrid',
+            'shortname' => 'RM',
+        ]);
+
+        \App\Models\Event::factory()->create([
+            'type' => 'goal',
+            'minute' => 2,
+        ]);
+
+
+        \App\Models\Game::factory(1)->create();
     }
 }

@@ -17,7 +17,8 @@ class GameFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'start' => fake()->dateTimeInInterval('-1 week', '+3 days')
         ];
+
     }
 }
