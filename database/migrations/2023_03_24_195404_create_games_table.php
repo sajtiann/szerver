@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
+            $table->dateTime('start');
+            $table->boolean('finished')->default('false');
             $table->timestamps();
         });
     }
