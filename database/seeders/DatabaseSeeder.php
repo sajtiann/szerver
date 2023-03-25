@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory(10)->create();
+        $users = \App\Models\User::factory(10)->create();
 
         \App\Models\Team::factory()->create([
             'name' => 'Barcelona',
@@ -40,6 +40,8 @@ class DatabaseSeeder extends Seeder
             $players = \App\Models\Player::factory()->create();
             $players->team()->associate($teams->random())->save();
         }
+
+        // $users->teams()->sync($teams);
 
         // \App\Models\Player::factory(22)->create();
 
