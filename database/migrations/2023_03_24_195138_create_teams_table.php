@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('shortname', 4)->unique();
             $table->string('image')->nullable();
             $table->timestamps();
+
         });
     }
 

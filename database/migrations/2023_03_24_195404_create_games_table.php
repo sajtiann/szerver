@@ -15,7 +15,13 @@ return new class extends Migration
             $table->id();
             $table->dateTime('start');
             $table->boolean('finished')->default('false');
+            $table->unsignedBigInteger('home_team_id');
+            $table->unsignedBigInteger('away_team_id');
             $table->timestamps();
+
+            $table->foreign('home_team_id')->references('id')->on('teams')->onDelete('cascade');
+            $table->foreign('away_team_id')->references('id')->on('teams')->onDelete('cascade');
+
         });
     }
 

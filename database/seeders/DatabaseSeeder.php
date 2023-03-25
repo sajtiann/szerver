@@ -19,8 +19,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        \App\Models\Player::factory(22)->create();
-
         \App\Models\Team::factory()->create([
             'name' => 'Barcelona',
             'shortname' => 'BAR',
@@ -31,12 +29,22 @@ class DatabaseSeeder extends Seeder
             'shortname' => 'RM',
         ]);
 
-        \App\Models\Event::factory()->create([
-            'type' => 'goal',
-            'minute' => 2,
+        \App\Models\Player::factory(11)->create([
+            'team_id' => 1,
         ]);
 
+        \App\Models\Player::factory(11)->create([
+            'team_id' => 2,
+        ]);
 
-        \App\Models\Game::factory(1)->create();
+        // \App\Models\Player::factory(22)->create();
+
+        // \App\Models\Event::factory()->create([
+        //     'type' => 'goal',
+        //     'minute' => 2,
+        // ]);
+
+
+        // \App\Models\Game::factory(1)->create();
     }
 }
