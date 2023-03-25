@@ -12,6 +12,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function teams() {
+        return $this->belongsToMany(Team::class)->withTimestamps();
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -42,7 +46,5 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function teams() {
-        return $this->belongsToMany(Team::class)->withTimestamps();
-    }
+
 }

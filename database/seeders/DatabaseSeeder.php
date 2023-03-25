@@ -39,6 +39,12 @@ class DatabaseSeeder extends Seeder
         for ($i=0; $i < 11; $i++) {
             $players = \App\Models\Player::factory()->create();
             $players->team()->associate($teams->random())->save();
+
+        }
+
+        for ($i=0; $i < 5; $i++) {
+            $user =  \App\Models\User::factory()->create();
+            $user->teams()->sync($teams->random());
         }
 
         // $users->teams()->sync($teams);
