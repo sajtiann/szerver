@@ -14,11 +14,6 @@ class DatabaseSeeder extends Seeder
     {
         \App\Models\User::factory(10)->create();
 
-        \App\Models\User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-
         \App\Models\Team::factory()->create([
             'name' => 'Barcelona',
             'shortname' => 'BAR',
@@ -29,6 +24,8 @@ class DatabaseSeeder extends Seeder
             'shortname' => 'RM',
         ]);
 
+        // $teams = \App\Models\Team::factory(3)->create();
+
         \App\Models\Player::factory(11)->create([
             'team_id' => 1,
         ]);
@@ -36,6 +33,13 @@ class DatabaseSeeder extends Seeder
         \App\Models\Player::factory(11)->create([
             'team_id' => 2,
         ]);
+
+        $teams = \App\Models\Team::factory(3)->create();
+
+        for ($i=0; $i < 11; $i++) {
+            $players = \App\Models\Player::factory()->create();
+            $players->team()->associate($teams->random())->save();
+        }
 
         // \App\Models\Player::factory(22)->create();
 

@@ -20,6 +20,7 @@ class PlayerFactory extends Factory
             'name' => fake()->name(),
             'number' => fake()->numberBetween(1, 99),
             'birthdate' => fake()->dateTime(),
+            'team_id' => null,
         ];
 
     }
