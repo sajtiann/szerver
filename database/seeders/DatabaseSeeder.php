@@ -47,16 +47,20 @@ class DatabaseSeeder extends Seeder
             $user->teams()->sync($teams->random());
         }
 
-        // $users->teams()->sync($teams);
-
-        // \App\Models\Player::factory(22)->create();
-
-        // \App\Models\Event::factory()->create([
-        //     'type' => 'goal',
-        //     'minute' => 2,
-        // ]);
+        \App\Models\Game::factory()->create([
+            'home_team_id' => 1,
+            'away_team_id' => 2,
+        ]);
 
 
-        // \App\Models\Game::factory(1)->create();
+        \App\Models\Event::factory()->create([
+            'type' => 'goal',
+            'minute' => 2,
+            'game_id' => 1,
+            'player_id' => 11
+        ]);
+
+
+
     }
 }
