@@ -35,3 +35,7 @@ Route::get('/table', function () {
 Route::get('/favourites', function () {
     return view('favourites');
 });
+
+// Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
