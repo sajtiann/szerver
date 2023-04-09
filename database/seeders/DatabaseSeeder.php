@@ -55,19 +55,27 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Game::factory()->create([
             'home_team_id' => 3,
-            'away_team_id' => 5,
+            'away_team_id' => 1,
             'finished' => true,
         ]);
 
         \App\Models\Game::factory()->create([
             'home_team_id' => 1,
             'away_team_id' => 5,
+            'start' => '2023-10-03 10:00:00'
         ]);
 
         \App\Models\Event::factory()->create([
             'type' => 'goal',
             'minute' => 2,
             'game_id' => 1,
+            'player_id' => 11
+        ]);
+
+        \App\Models\Event::factory()->create([
+            'type' => 'goal',
+            'minute' => 2,
+            'game_id' => 2,
             'player_id' => 11
         ]);
 
