@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Team::factory()->create([
             'name' => 'Barcelona',
             'shortname' => 'BAR',
+            'image' => 'https://api.efootball.pro/uploads/d4dd393dd18949fe811619bbf00bd3f4.png'
         ]);
 
         \App\Models\Team::factory()->create([
@@ -52,6 +53,16 @@ class DatabaseSeeder extends Seeder
             'away_team_id' => 2,
         ]);
 
+        \App\Models\Game::factory()->create([
+            'home_team_id' => 3,
+            'away_team_id' => 5,
+            'finished' => true,
+        ]);
+
+        \App\Models\Game::factory()->create([
+            'home_team_id' => 1,
+            'away_team_id' => 5,
+        ]);
 
         \App\Models\Event::factory()->create([
             'type' => 'goal',
@@ -60,7 +71,12 @@ class DatabaseSeeder extends Seeder
             'player_id' => 11
         ]);
 
-
+        \App\Models\Event::factory()->create([
+            'type' => 'own_goal',
+            'minute' => 10,
+            'game_id' => 1,
+            'player_id' => 11
+        ]);
 
     }
 }

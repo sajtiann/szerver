@@ -12,12 +12,12 @@ class Team extends Model {
         return $this->hasMany(Player::class);
     }
 
-    public function game1() {
-        return $this->belongsTo(Game::class, 'home_team_id');
+    public function gameHome() {
+        return $this->hasOne(Game::class, 'home_team_id');
     }
 
-    public function game2() {
-        return $this->belongsTo(Game::class, 'away_team_id');
+    public function gameAway() {
+        return $this->hasOne(Game::class, 'away_team_id');
     }
 
     public function users() {

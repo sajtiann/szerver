@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->dateTime('start');
-            $table->boolean('finished')->default('false');
+            $table->boolean('finished')->default(false);
             $table->unsignedBigInteger('home_team_id');
             $table->unsignedBigInteger('away_team_id');
             $table->timestamps();
