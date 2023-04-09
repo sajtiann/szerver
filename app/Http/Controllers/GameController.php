@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -30,7 +31,23 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'start' => 'required|date_format:Y-m-d\TH:i|after_or_equal:today',
+            'home_team_id' => 'required',
+            'away_team_id' => 'required|different:home_team_id',
+        ],
+        // [
+        //     'start.required' => "Kötelező megadni kezdési időpontot!",
+        //     'home_team_id.required' => "Kötelező megadni otthoni csapatot!",
+        //     'away_team_id.required' => "Kötelező megadni vendég csapatot!",
+        // ]
+    );
+        Game::factory()->create($validated);
+        Session::flash('game_created');
+        Session::flash('start', $validated['start']);
+        Session::flash('home_team_id', $validated['home_team_id']);
+        Session::flash('away_team_id', $validated['away_team_id']);
+        return redirect()->route('games.create');
     }
 
     /**

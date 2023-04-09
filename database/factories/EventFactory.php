@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Event;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class EventFactory extends Factory
     public function definition(): array
     {
         return [
-            'type' => fake()->randomElements(['goal', 'own_goal', 'yellow_card', 'red_card']),
+            'type' => fake()->randomElements(Event::$types),
             'minute' => fake()->numberBetween(0,90),
         ];
 
