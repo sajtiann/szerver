@@ -17,9 +17,9 @@ class PlayerFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'name' => fake()->firstNameMale() . ' ' . fake()->lastName(),
             'number' => fake()->numberBetween(1, 99),
-            'birthdate' => fake()->dateTime(),
+            'birthdate' => fake()->dateTimeBetween('-35 years','-18 years'),
             'team_id' => null,
         ];
 

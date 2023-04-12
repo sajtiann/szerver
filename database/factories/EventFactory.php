@@ -19,7 +19,7 @@ class EventFactory extends Factory
     {
         return [
             'type' => fake()->randomElements(Event::$types),
-            'minute' => fake()->numberBetween(0,90),
+            'minute' => fake()->numberBetween(1,90),
         ];
 
     }
