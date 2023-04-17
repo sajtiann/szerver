@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('games.index');
+    return view('welcome');
 });
 
 Route::resource('games', GameController::class);

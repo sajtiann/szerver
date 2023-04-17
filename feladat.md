@@ -44,11 +44,11 @@ Egyetlen admin jogosultságú felhasználó legyen, akinek a bejelentkezési ada
 
 ### Főoldal (1 pont)
 
-Az alkalmazás gyökér útvonalán jelenjen meg egy statikus oldal, amelyen tájékoztatást kapunk arról, hogy milyen webhelyre érkeztünk, és a következő menüpontok közül választhatunk:
-mérkőzések
-csapatok
-tabella
-kedvenceim
+_Az alkalmazás gyökér útvonalán jelenjen meg egy statikus oldal, amelyen tájékoztatást kapunk arról, hogy milyen webhelyre érkeztünk, és a következő menüpontok közül választhatunk:_
+_mérkőzések_
+_csapatok_
+_tabella_
+_kedvenceim_
 
 ### Mérkőzések oldal (4 pont)
 

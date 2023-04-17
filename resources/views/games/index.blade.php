@@ -82,7 +82,7 @@
 <div class="container">
 <div class="row justify-content-between">
     <div class="col-12 col-md-8">
-        <h1>Mérkőzések</h1>
+        <h1>Matches</h1>
     </div>
     <div class="col-12 col-md-4">
         <div class="float-lg-end">
@@ -94,7 +94,7 @@
 </div>
 
 <div class="section-heading">
-    <h2>Folyamatban lévő mérkőzések</h2>
+    <h2>Ongoing matches</h2>
 </div>
 
 @forelse ($games as $game)
@@ -138,13 +138,13 @@
 @empty
     <div class="col-12">
         <div class="alert alert-warning" role="alert">
-            Nincs mérkőzés!
+            No matches available!
         </div>
     </div>
 @endforelse
 
 <div class="section-heading">
-    <h2>Közelgő mérkőzések</h2>
+    <h2>Upcoming matches</h2>
 </div>
 
 @forelse ($games as $game)
@@ -160,20 +160,20 @@
         <span class="score" >vs</span>
         <img class="team-logo" src={{$game->away_team->image !== null ? $game->away_team->image : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Away Team Image">
         <span class="team-name">{{ $game->away_team->name }} ({{ $game->away_team->shortname}})</span>
-        <span class="time"> Kezdés: {{ $game->start }}</span>
+        <span class="time"> Match Date: {{ $game->start }}</span>
     </div>
     </a>
     @endif
 @empty
     <div class="col-12">
         <div class="alert alert-warning" role="alert">
-            Nincs mérkőzés!
+            No matches available!
         </div>
     </div>
 @endforelse
 
 <div class="section-heading">
-    <h2>Befejezett mérkőzések</h2>
+    <h2>Completed matches</h2>
 </div>
 
 @forelse ($games as $game)
@@ -217,7 +217,7 @@
 @empty
     <div class="col-12">
         <div class="alert alert-warning" role="alert">
-            Nincs mérkőzés!
+            No matches available!
         </div>
     </div>
 @endforelse
