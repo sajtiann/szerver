@@ -119,7 +119,7 @@ p {
               <a class="nav-link" href="{{ route('games.index')}}">Matches</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Teams</a>
+              <a class="nav-link" href="{{ route('teams.index')}}">Teams</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Table</a>
@@ -163,7 +163,7 @@ p {
               <p class="card-text">
                 Learn more about your favorite teams and their players.
               </p>
-              <a href="#" class="btn btn-success">View Teams</a>
+              <a href="{{ route('teams.index')}}" class="btn btn-success">View Teams</a>
             </div>
         </div>
     </div>
@@ -199,7 +199,7 @@ p {
                 <p class="card-text">
                     Get in touch with us for any questions or feedback.
                 </p>
-                <a href="#" class="btn btn-success">Contact Us</a>
+                <a href="https://github.com/szerveroldali" class="btn btn-success">Contact Us</a>
             </div>
         </div>
     </div>

@@ -12,7 +12,9 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        return view('teams.index', [
+            'teams'=>Team::all()
+        ]);
     }
 
     /**
@@ -20,7 +22,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        return view('teams.create');
     }
 
     /**

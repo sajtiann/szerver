@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\TeamController;
+
 use App\Models\Game;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +22,7 @@ Route::get('/', function () {
 });
 
 Route::resource('games', GameController::class);
+
+Route::resource('teams', TeamController::class);
 
 // Auth::routes();

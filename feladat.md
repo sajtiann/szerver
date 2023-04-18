@@ -52,11 +52,11 @@ _kedvenceim_
 
 ### Mérkőzések oldal (4 pont)
 
-Ezt az oldalt bárki (vendég, bejelentkezett, admin) megtekintheti.
+_Ezt az oldalt bárki (vendég, bejelentkezett, admin) megtekintheti._
 _Az oldalon megjelenik az összes mérkőzés: a mérkőzésben részt vevő két csapat neve (vagy rövidítése), logója (ha van feltöltve, különben placeholder kép) és a meccs kezdési időpontja._
 A mérkőzések alapvetően időrendi sorrendben jelennek meg, de külön szekcióba ki kell emelni az éppen folyamatban lévő meccseket (amelyek kezdési időpontja elmúlt, de nincsenek még befejezettként jelölve). [időrendi-sorrendben??]
 _A folyamatban lévő és befejezett mérkőzéseknél az aktuális eredmény is legyen látható! Ezt az adott meccshez tartozó gól és öngól típusú események alapján kell valós időben kiszámolni, tehát nem szabad külön fix adatként eltárolni az eredményt! (Figyelem: az öngólt értelemszerűen az ellenfél javára kell számolni, nem pedig a gólszerző játékos csapatának!)_
-Lapozással biztosítsd, hogy csak bizonyos (pl. 10, 15, 20, stb.) számú mérkőzés jelenjen meg egyidejűleg az oldalon, utána lapozni kelljen! Ez alól kivételt képezhet a folyamatban lévő meccsek szekciója, amelyekről feltételezhetjük, hogy egyszerre viszonylag kevés van, és akár minden lapozott oldal tetején is szerepelhet.
+Lapozással biztosítsd, hogy csak bizonyos (pl. 10, 15, 20, stb.) számú mérkőzés jelenjen meg egyidejűleg az oldalon, utána lapozni kelljen! Ez alól kivételt képezhet a folyamatban lévő meccsek szekciója, amelyekről feltételezhetjük, hogy egyszerre viszonylag kevés van, és akár minden lapozott oldal tetején is szerepelhet. [?]
 _Egy adott mérkőzésre kattintva annak részletező oldalára jutunk._
 
 ### Mérkőzésrészletező oldal (2 pont)
@@ -95,11 +95,13 @@ Az admin felhasználó törölheti is a meglévő mérkőzéseket, amennyiben m�
 
 ### Csapatok listája (2 pont)
 
-Ezt az oldalt bárki (vendég, bejelentkezett, admin) megtekintheti.
-Az oldalon megjelenik az összes csapat neve, rövidítése és logója (ha van feltöltve, különben placeholder kép).
+_Ezt az oldalt bárki (vendég, bejelentkezett, admin) megtekintheti._
+_Az oldalon megjelenik az összes csapat neve, rövidítése és logója (ha van feltöltve, különben placeholder kép)._
 A lista a csapatok neve szerint betűrendbe rendezve jelenik meg.
-Az egyes csapatokra kattintva továbblépünk az adott csapat részletező oldalára.
-Csapatrészletező oldal (2 pont)
+_Az egyes csapatokra kattintva továbblépünk az adott csapat részletező oldalára._
+
+### Csapatrészletező oldal (2 pont)
+
 A csapatrészletező oldalon két fontos információ kell megjelenjen:
 A csapat mérkőzései időrendi sorrendben. (Természetesen itt is fel kell tüntetni az eredményt a folyamatban lévő és befejezett meccsek esetében.)
 A csapatban lévő összes játékos adatai: neve, születési dátuma, statisztikái (hány gólt, öngólt rúgott, illetve hány sárga és piros lapot kapott).
