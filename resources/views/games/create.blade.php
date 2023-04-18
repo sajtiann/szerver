@@ -1,9 +1,9 @@
 @extends('layouts.app')
-@section('title', 'Create game')
+@section('title', 'Create Game')
 
 @section('content')
 <div class="container">
-    <h1>Create game</h1>
+    <h1>Create Game</h1>
     <div class="mb-4">
         <a href="/"><i class="fas fa-long-arrow-alt-left"></i> Back to the homepage</a>
     </div>

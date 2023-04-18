@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class TeamController extends Controller
 {
@@ -30,7 +34,29 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required',
+            'shortname' => 'required|max:4',
+            'image' => 'nullable|file|mimes:jpg,png|max:4096',
+        ]);
+
+        $image_path = '';
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $image_path = 'image_'.Str::random(10).'.'.$file->getClientOriginalExtension();
+            Storage::disk('public')->put($image_path,$file->get());
+        }
+
+        $team = Team::factory()->create([
+            'name' => $validated['name'],
+            'shortname' => $validated['shortname'],
+            'image' => $image_path ? $image_path : null,
+        ]);
+
+        Session::flash('team_created');
+        Session::flash('name', $validated['name']);
+        Session::flash('shortname', $validated['shortname']);
+        return redirect()->route('teams.create');
     }
 
     /**
