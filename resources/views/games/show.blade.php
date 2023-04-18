@@ -61,7 +61,7 @@
           <ul class="list-group">
             <li class="list-group-item active"><h4>Match Events</h4></li>
             @foreach ($game->events as $event)
-            <li><span>Minute: {{$event->minute}}</span>, {{$event->type}}, {{$event->player}} ({{$event->player->team->name}})</li>
+            <li><span>Minute: {{$event->minute}}</span>, {{$event->type}}, {{$event->player->name}} ({{$event->player->team->name}})</li>
             @endforeach
           </ul>
 

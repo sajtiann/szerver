@@ -35,8 +35,8 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required',
-            'shortname' => 'required|max:4',
+            'name' => 'required|unique:teams,name',
+            'shortname' => 'required|unique:teams,shortname|max:4',
             'image' => 'nullable|file|mimes:jpg,png|max:4096',
         ]);
 
@@ -64,7 +64,9 @@ class TeamController extends Controller
      */
     public function show(Team $team)
     {
-        //
+        return view('teams.show', [
+            'team' => $team
+        ]);
     }
 
     /**

@@ -39,7 +39,7 @@
 _Minden modellből kerüljön tárolásra észszerű mennyiségben (pl. 10-15 csapat), valamint a köztük lévő kapcsolatokból is generálj!_
 _A seeder fedjen le minél több esetet, tehát legyenek pl. már lejátszott, folyamatban lévő és jövőbeli meccsek is, valamint változatos események az egyes meccseken belül!_
 _Minden szükséges seedelés egyetlen parancs kiadására történjen meg: php artisan db:seed vagy php artisan migrate:fresh --seed_
-Az egyszerű felhasználók csak userX@szerveroldali.hu (ahol X eleme természetes számok) e-mail címmel és password jelszóval jöjjenek létre az egyszerűség kedvéért!
+_Az egyszerű felhasználók csak userX@szerveroldali.hu (ahol X eleme természetes számok) e-mail címmel és password jelszóval jöjjenek létre az egyszerűség kedvéért!_
 Egyetlen admin jogosultságú felhasználó legyen, akinek a bejelentkezési adatai fixen: admin@szerveroldali.hu - adminpwd
 
 ### Főoldal (1 pont)
@@ -110,7 +110,9 @@ A csapatban lévő összes játékos adatai: neve, születési dátuma, statiszt
 
 Az admin tudjon új csapatot felvenni a bajnokságba. Ehhez meg kell adjon minden kötelező adatot, de logó feltöltése opcionális!
 A logóhoz tartozó képfeltöltés ténylegesen legyen fájlfeltöltés, tehát nem elég csupán a kép nevét vagy egy külső URL-t eltárolni!
-Meglévő csapat módosítása (4 pont)
+
+### Meglévő csapat módosítása (4 pont)
+
 Az admin a csapat részletező oldaláról átlépve tudja módosítani is a felvett csapatok adatait és/vagy logóját.
 Ha már van feltöltött kép, és nem tölt fel fájlt, akkor maradjon meg az előző kép; különben értelemszerűen le kell cserélni.
 

@@ -99,7 +99,7 @@
             @forelse ($teams as $team)
             <div class="team-item">
                 <a href="{{ route('teams.show', $team)}}">
-                    <img src={{$team->image !== null ? $team->image : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Team Logo">
+                    <img src={{$team->image ? ((Str::contains($team->image, 'https')) ?  $team->image : asset('storage/'.$team->image)) : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Team Logo">
                     <h2>{{$team->name}} ({{$team->shortname}})</h2>
                 </a>
             </div>

@@ -5,7 +5,7 @@
 <div class="container">
     <h1>Create Team</h1>
     <div class="mb-4">
-        <a href="/"><i class="fas fa-long-arrow-alt-left"></i> Back to the homepage</a>
+        <a href="/teams"><i class="fas fa-long-arrow-alt-left"></i> Back to teams</a>
     </div>
 
     @if (Session::has('team_created'))
@@ -15,7 +15,7 @@
     @endif
 
     {{-- TODO: action, method --}}
-    <form method="POST" action="{{ route('teams.store') }}">
+    <form method="POST" action="{{ route('teams.store') }}" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group row mb-3">

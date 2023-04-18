@@ -5,7 +5,7 @@
 <div class="container">
     <h1>Create Game</h1>
     <div class="mb-4">
-        <a href="/"><i class="fas fa-long-arrow-alt-left"></i> Back to the homepage</a>
+        <a href="/games"><i class="fas fa-long-arrow-alt-left"></i> Back to the matches</a>
     </div>
 
     @if (Session::has('game_created'))
