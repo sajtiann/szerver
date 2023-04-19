@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use App\Models\Game;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\DB;
 
 class GameController extends Controller
 {
@@ -14,8 +17,10 @@ class GameController extends Controller
     public function index()
     {
         return view('games.index', [
-            'games'=>Game::all()
+            'games' => Game::orderBy('start')->get(),
         ]);
+
+        // DB::table('games')->orderBy('start', 'desc')->get()
     }
 
     /**
@@ -56,7 +61,7 @@ class GameController extends Controller
     public function show(Game $game)
     {
         return view('games.show', [
-            'game' => $game
+            'game' => $game,
         ]);
     }
 

@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\EventController;
+
 
 use App\Models\Game;
 use Illuminate\Support\Facades\Route;
@@ -24,5 +26,7 @@ Route::get('/', function () {
 Route::resource('games', GameController::class);
 
 Route::resource('teams', TeamController::class);
+
+Route::resource('events', EventController::class);
 
 // Auth::routes();

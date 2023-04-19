@@ -17,9 +17,16 @@ class DatabaseSeeder extends Seeder
         for ($i = 1; $i <= 10; $i++) {
             \App\Models\User::factory()->create([
                 'name' => "User{$i}",
-                'email' => "user{$i}@szerveroldali.hu"
+                'email' => "user{$i}@szerveroldali.hu",
             ]);
         }
+
+        \App\Models\User::factory()->create([
+            'name' => "Admin",
+            'email' => "admin@szerveroldali.hu",
+            'is_admin' => true,
+            'password' => bcrypt('adminpwd'),
+        ]);
 
         // ---- TEAMS ----
 

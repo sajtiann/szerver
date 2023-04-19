@@ -4,22 +4,25 @@
 
 @section('content')
 <div class="container">
-
-    <div class="col-12 col-md-8">
-        <h1 class="text-center">Match Details</h1>
+    <div class="row justify-content-between">
+        <div class="col-12 col-md-8">
+            <h1>Details: {{$game->home_team->name}} vs {{$game->away_team->name}} </h1>
+        </div>
         <div class="col-12 col-md-4">
             <div class="float-lg-end">
 
-                <a href="{{ route('games.create')}}" role="button" class="btn btn-sm btn-success mb-1"><i class="fas fa-plus-circle"></i> Create game</a>
+                <a href="{{ route('events.create')}}" role="button" class="btn btn-sm btn-success mb-1"><i class="fas fa-plus-circle"></i> Create Event</a>
 
             </div>
         </div>
+    </div>
           <div class="d-flex justify-content-center align-items-center">
             <div class="logo mx-4">
               <img
                 src="{{$game->home_team->image !== null ? $game->home_team->image : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}}"
                 alt="Home Team Logo"
                 class="img-fluid"
+                width="150px"
               />
             </div>
             <div class="team mx-4">
@@ -32,10 +35,11 @@
                 src="{{$game->away_team->image !== null ? $game->away_team->image : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}}"
                 alt="Away Team Logo"
                 class="img-fluid"
+                width="150px"
               />
             </div>
           </div>
-          <p class="text-center my-3">Match Date:  {{ $game->start }}</p>
+
           @php
             $homeScore = 0;
             $awayScore = 0;
@@ -56,24 +60,35 @@
                     }
                 }
             }
+            $result = "$homeScore - $awayScore";
+            $date = \Carbon\Carbon::parse($game->start);
+            $today = \Carbon\Carbon::today();
         @endphp
-          <p class="result text-center">{{$homeScore}} - {{$awayScore}}</p>
-          <ul class="list-group">
-            <li class="list-group-item active"><h4>Match Events</h4></li>
-            @foreach ($game->events as $event)
-            <li><span>Minute: {{$event->minute}}</span>, {{$event->type}}, {{$event->player->name}} ({{$event->player->team->name}})</li>
-            @endforeach
-          </ul>
+
+          <p class="result text-center">{{($game->finished || (!$game->finished && $date->lt($today))) ? $result : ""}}</p>
+          <p class="text-center my-3">Match Date:  {{ $game->start }}</p>
+          @if ($game->finished || (!$game->finished && $date->lt($today)))
+          <h4>Match Events</h4>
+              <table>
+                    @foreach ($game->events->sortBy('minute') as $event)
+                        <tr>
+                            <td>Minute: {{$event->minute}}</td>
+                            <td>{{$event->type}}</td>
+                            <td>{{$event->player->name}}</td>
+                            <td>{{$event->player->team->name}}</td>
+                            <td>Edit</td>
+                            <td>Delete</td>
+                        </tr>
+                    @endforeach
+              </table>
+          @endif
 
         {{-- TODO: Link --}}
         <a href="{{ route('games.index')}}"><i class="fas fa-long-arrow-alt-left"></i> Back to the homepage</a>
 
-    </div>
 
-    <div class="col-12 col-md-4">
+    {{-- <div class="col-12 col-md-4">
         <div class="float-lg-end">
-
-            {{-- TODO: Links, policy --}}
             <a role="button" class="btn btn-sm btn-primary" href="#"><i class="far fa-edit"></i> Edit post</a>
 
             <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete-confirm-modal"><i class="far fa-trash-alt">
@@ -81,7 +96,7 @@
             </button>
 
         </div>
-    </div>
+    </div> --}}
 </div>
 
 <!-- Modal -->
