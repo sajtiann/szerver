@@ -67,7 +67,7 @@ _Időrendi sorrendben megjelenik az adott meccshez tartozó összes esemény. (p
 ### Új esemény rögzítése (3 pont)
 
 _Az admin felhasználó számára a mérkőzésrészletező oldalról (pl. az alján elhelyezett űrlapon vagy innen elérhető külön oldalon) lehetőség van új esemény rögzítésére egy folyamatban lévő mérkőzéshez._
-Ehhez meg kell adnia a következőket: hányadik játékpercben (1 és 90 közötti egész), milyen típusú esemény (gól, öngól, sárga lap, piros lap) történt és ki az érintett játékos. Alapvetően nem szükséges külön kiválasztani (vagy tárolni) a csapatot, hiszen azt a játékos személye egyértelműen meghatározza.
+_Ehhez meg kell adnia a következőket: hányadik játékpercben (1 és 90 közötti egész), milyen típusú esemény (gól, öngól, sárga lap, piros lap) történt_ és ki az érintett játékos. Alapvetően nem szükséges külön kiválasztani (vagy tárolni) a csapatot, hiszen azt a játékos személye egyértelműen meghatározza.
 Az érintett játékost egy listából (pl. legördülő menü vagy rádiógombok) lehet kiválasztani, amely csapat és mezszám szerint rendezett.
 
 ### Esemény visszavonása (1 pont)
@@ -82,7 +82,7 @@ A lezárt meccshez további esemény nem rögzíthető, illetve a meccs ezután 
 
 ### Új mérkőzés létrehozása (3 pont)
 
-Az admin felhasználó új mérkőzéseket is kiírhat.
+Az admin _felhasználó új mérkőzéseket is kiírhat._
 _Az egyes mezőkre jellemző alapvető validációs feltételek mellett ellenőrizni kell, hogy a kezdés időpontja jövőbeli, illetve a hazai és vendég csapat nem azonos._
 
 ### Meglévő mérkőzés módosítása (3 pont)
@@ -97,7 +97,7 @@ Az admin felhasználó törölheti is a meglévő mérkőzéseket, amennyiben m�
 
 _Ezt az oldalt bárki (vendég, bejelentkezett, admin) megtekintheti._
 _Az oldalon megjelenik az összes csapat neve, rövidítése és logója (ha van feltöltve, különben placeholder kép)._
-A lista a csapatok neve szerint betűrendbe rendezve jelenik meg.
+_A lista a csapatok neve szerint betűrendbe rendezve jelenik meg._
 _Az egyes csapatokra kattintva továbblépünk az adott csapat részletező oldalára._
 
 ### Csapatrészletező oldal (2 pont)
@@ -108,8 +108,8 @@ A csapatban lévő összes játékos adatai: neve, születési dátuma, statiszt
 
 ### Új csapat hozzáadása (4 pont)
 
-Az admin tudjon új csapatot felvenni a bajnokságba. Ehhez meg kell adjon minden kötelező adatot, de logó feltöltése opcionális!
-A logóhoz tartozó képfeltöltés ténylegesen legyen fájlfeltöltés, tehát nem elég csupán a kép nevét vagy egy külső URL-t eltárolni!
+_Az admin tudjon új csapatot felvenni a bajnokságba. Ehhez meg kell adjon minden kötelező adatot, de logó feltöltése opcionális!_
+_A logóhoz tartozó képfeltöltés ténylegesen legyen fájlfeltöltés, tehát nem elég csupán a kép nevét vagy egy külső URL-t eltárolni!_
 
 ### Meglévő csapat módosítása (4 pont)
 

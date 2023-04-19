@@ -133,8 +133,10 @@
                     <th>Type of Event</th>
                     <th>Name of the Player</th>
                     <th>Team of the Player</th>
-                    <th> </th>
-                    <th> </th>
+                    @if (!$game->finished)
+                        <th> </th>
+                        <th> </th>
+                    @endif
                 </tr>
                     @foreach ($game->events->sortBy('minute') as $event)
                         <tr>
@@ -144,8 +146,10 @@
                             </td>
                             <td>{{$event->player->name}}</td>
                             <td>{{$event->player->team->name}}</td>
-                            <td><button type="button" class="btn btn-primary">Edit</button></td>
-                            <td><button type="button" class="btn btn-danger">Delete</button></td>
+                            @if (!$game->finished)
+                                <td><button type="button" class="btn btn-primary">Edit</button></td>
+                                <td><button type="button" class="btn btn-danger">Delete</button></td>
+                            @endif
                         </tr>
                     @endforeach
               </table>
