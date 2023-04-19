@@ -2,6 +2,64 @@
 {{-- TODO: Post title --}}
 @section('title', 'View game: ')
 
+<style>
+    h4 {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    th {
+        text-align: center;
+        size: 20%;
+        font-weight: bold;
+        border: 1px solid #ddd;
+        background-color: #00a651;
+        color: white;
+    }
+
+    td {
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    td:nth-child(1) {
+        width: 10%;
+    }
+
+    td:nth-child(2) {
+        width: 20%;
+    }
+
+    td:nth-child(3) {
+        width: 30%;
+    }
+
+    td:nth-child(4) {
+        width: 30%;
+    }
+
+    td:nth-child(5), td:nth-child(6) {
+        width: 5%;
+        text-align: center;
+    }
+</style>
+
+
 @section('content')
 <div class="container">
     <div class="row justify-content-between">
@@ -65,26 +123,36 @@
             $today = \Carbon\Carbon::today();
         @endphp
 
-          <p class="result text-center">{{($game->finished || (!$game->finished && $date->lt($today))) ? $result : ""}}</p>
-          <p class="text-center my-3">Match Date:  {{ $game->start }}</p>
+          <h4 class="result text-center">{{($game->finished || (!$game->finished && $date->lt($today))) ? $result : ""}}</h4>
+          <h4 class="text-center my-3">Match Date:  <i>{{ $game->start }}</i></h4>
           @if ($game->finished || (!$game->finished && $date->lt($today)))
           <h4>Match Events</h4>
               <table>
+                <tr>
+                    <th>Minute</th>
+                    <th>Type of Event</th>
+                    <th>Name of the Player</th>
+                    <th>Team of the Player</th>
+                    <th> </th>
+                    <th> </th>
+                </tr>
                     @foreach ($game->events->sortBy('minute') as $event)
                         <tr>
-                            <td>Minute: {{$event->minute}}</td>
-                            <td>{{$event->type}}</td>
+                            <td>{{$event->minute}}"</td>
+                            <td>
+                                {{$event->type == 'goal' ? 'Goal' : ($event->type == 'own_goal' ? 'Own Goal' : ($event->type == 'yellow_card' ? 'Yellow Card' : ($event->type == 'red_card' ? 'Red Card' : 'Unknown'))) }}
+                            </td>
                             <td>{{$event->player->name}}</td>
                             <td>{{$event->player->team->name}}</td>
-                            <td>Edit</td>
-                            <td>Delete</td>
+                            <td><button type="button" class="btn btn-primary">Edit</button></td>
+                            <td><button type="button" class="btn btn-danger">Delete</button></td>
                         </tr>
                     @endforeach
               </table>
           @endif
 
         {{-- TODO: Link --}}
-        <a href="{{ route('games.index')}}"><i class="fas fa-long-arrow-alt-left"></i> Back to the homepage</a>
+        <a href="{{ route('games.index')}}"><i class="fas fa-long-arrow-alt-left"></i> Back to the Matches page</a>
 
 
     {{-- <div class="col-12 col-md-4">

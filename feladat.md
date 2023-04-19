@@ -62,7 +62,7 @@ _Egy adott mérkőzésre kattintva annak részletező oldalára jutunk._
 ### Mérkőzésrészletező oldal (2 pont)
 
 _Ezen az oldalon is láthatók a paraméterként kapott meccs alapvető adatai, illetve folyamatban lévő vagy befejezett mérkőzés esetén az eredmény is._
-*Időrendi sorrendben megjelenik az adott meccshez tartozó összes esemény. (pl. "7. perc, Unikornis FC, gól, Programo Zoltán")*ß
+_Időrendi sorrendben megjelenik az adott meccshez tartozó összes esemény. (pl. "7. perc, Unikornis FC, gól, Programo Zoltán")_
 
 ### Új esemény rögzítése (3 pont)
 
