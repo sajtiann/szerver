@@ -104,7 +104,7 @@ _Az egyes csapatokra kattintva továbblépünk az adott csapat részletező olda
 
 A csapatrészletező oldalon két fontos információ kell megjelenjen:
 A csapat mérkőzései időrendi sorrendben. (Természetesen itt is fel kell tüntetni az eredményt a folyamatban lévő és befejezett meccsek esetében.)
-A csapatban lévő összes játékos adatai: neve, születési dátuma, statisztikái (hány gólt, öngólt rúgott, illetve hány sárga és piros lapot kapott).
+_A csapatban lévő összes játékos adatai: neve, születési dátuma, statisztikái (hány gólt, öngólt rúgott, illetve hány sárga és piros lapot kapott)._
 
 ### Új csapat hozzáadása (4 pont)
 

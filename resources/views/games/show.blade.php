@@ -1,5 +1,4 @@
 @extends('layouts.app')
-{{-- TODO: Post title --}}
 @section('title', 'View game: ')
 
 <style>
