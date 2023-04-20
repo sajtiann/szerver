@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class EventController extends Controller
 {
@@ -28,7 +30,20 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'minute' => 'required',
+            'type' => [
+                'required',
+                Rule::in(Event::$types),
+            ],
+            // 'player' => 'required',
+        ]);
+
+        Event::factory()->create($validated);
+        Session::flash('event_created');
+        Session::flash('minute', $validated['minute']);
+        Session::flash('type', $validated['type']);
+        return redirect()->route('events.create');
     }
 
     /**
