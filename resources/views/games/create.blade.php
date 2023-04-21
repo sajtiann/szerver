@@ -8,12 +8,6 @@
         <a href="/games"><i class="fas fa-long-arrow-alt-left"></i> Back to the matches</a>
     </div>
 
-    @if (Session::has('game_created'))
-        <div class="alert alert-primary">
-            <span>The following game is created: </span><span>Start: {{session('start')}}, Home Team Id: {{session('home_team_id')}}, Away Team Id: {{session('away_team_id')}}</span>
-        </div>
-    @endif
-
     {{-- TODO: action, method --}}
     <form method="POST" action="{{ route('games.store') }}">
         @csrf

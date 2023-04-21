@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Game;
+use App\Models\Player;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
 class EventController extends Controller
@@ -22,7 +25,13 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+        // if(!Auth::check()){
+        //     return redirect('games');
+        // }
+
+        return view('events.create', [
+            'players' => Player::all(),
+        ]);
     }
 
     /**
@@ -75,6 +84,9 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        $this->authorize('delete', $event);
+        Session::flash('event_deleted');
+        $event->delete();
+        return redirect()->route('games.index');
     }
 }

@@ -47,12 +47,14 @@ class GameController extends Controller
         //     'away_team_id.required' => "Kötelező megadni vendég csapatot!",
         // ]
     );
-        Game::factory()->create($validated);
-        Session::flash('game_created');
-        Session::flash('start', $validated['start']);
-        Session::flash('home_team_id', $validated['home_team_id']);
-        Session::flash('away_team_id', $validated['away_team_id']);
-        return redirect()->route('games.create');
+
+        $game = Game::factory()->create([
+            'start' => $validated['start'],
+            'home_team_id' => $validated['home_team_id'],
+            'away_team_id' => $validated['away_team_id'],
+        ]);
+        Session::flash('game_created', $validated['start']);
+        return redirect()->route('games.show', $game);
     }
 
     /**
@@ -86,6 +88,9 @@ class GameController extends Controller
      */
     public function destroy(Game $game)
     {
-        //
+        $this->authorize('delete', $game);
+        Session::flash('game_deleted', $game['start']);
+        $game->delete();
+        return redirect()->route('games.index');
     }
 }

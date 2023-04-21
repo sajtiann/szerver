@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
 use App\Models\Team;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
@@ -57,7 +58,7 @@ class TeamController extends Controller
         Session::flash('team_created');
         Session::flash('name', $validated['name']);
         Session::flash('shortname', $validated['shortname']);
-        return redirect()->route('teams.create');
+        return redirect()->route('teams.show', $team);
     }
 
     /**
@@ -66,7 +67,8 @@ class TeamController extends Controller
     public function show(Team $team)
     {
         return view('teams.show', [
-            'team' => $team
+            'team' => $team,
+            'games' => Game::all(),
         ]);
     }
 

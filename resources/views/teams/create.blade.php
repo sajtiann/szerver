@@ -8,12 +8,6 @@
         <a href="/teams"><i class="fas fa-long-arrow-alt-left"></i> Back to teams</a>
     </div>
 
-    @if (Session::has('team_created'))
-        <div class="alert alert-primary">
-            <span>The following team is created: </span><span>Name: {{session('name')}}, Shortname: {{session('shortname')}}</span>
-        </div>
-    @endif
-
     {{-- TODO: action, method --}}
     <form method="POST" action="{{ route('teams.store') }}" enctype="multipart/form-data">
         @csrf

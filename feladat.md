@@ -72,8 +72,8 @@ Az érintett játékost egy listából (pl. legördülő menü vagy rádiógombo
 
 ### Esemény visszavonása (1 pont)
 
-Az admin felhasználó az egyes eseményeket vissza is vonhatja (törölheti), pl. téves rögzítés esetén.
-Visszavonni csak addig lehet eseményeket, amíg a meccs folyamatban van. Lezárt mérkőzés eseményeihez nem lehet hozzányúlni.
+_Az admin felhasználó az egyes eseményeket vissza is vonhatja (törölheti), pl. téves rögzítés esetén._
+_Visszavonni csak addig lehet eseményeket, amíg a meccs folyamatban van. Lezárt mérkőzés eseményeihez nem lehet hozzányúlni._
 
 ### Meccs lezárása (1 pont)
 
@@ -82,7 +82,7 @@ A lezárt meccshez további esemény nem rögzíthető, illetve a meccs ezután 
 
 ### Új mérkőzés létrehozása (3 pont)
 
-Az admin _felhasználó új mérkőzéseket is kiírhat._
+`Az admin felhasználó új mérkőzéseket is kiírhat.`
 _Az egyes mezőkre jellemző alapvető validációs feltételek mellett ellenőrizni kell, hogy a kezdés időpontja jövőbeli, illetve a hazai és vendég csapat nem azonos._
 
 ### Meglévő mérkőzés módosítása (3 pont)
@@ -91,7 +91,7 @@ Az admin felhasználó módosíthatja is a meglévő mérkőzéseket.
 
 ### Mérkőzés törlése (1 pont)
 
-Az admin felhasználó törölheti is a meglévő mérkőzéseket, amennyiben még nincs esemény rögzítve az adott meccshez!
+_Az admin felhasználó törölheti is a meglévő mérkőzéseket, amennyiben még nincs esemény rögzítve az adott meccshez!_
 
 ### Csapatok listája (2 pont)
 
@@ -102,8 +102,8 @@ _Az egyes csapatokra kattintva továbblépünk az adott csapat részletező olda
 
 ### Csapatrészletező oldal (2 pont)
 
-A csapatrészletező oldalon két fontos információ kell megjelenjen:
-A csapat mérkőzései időrendi sorrendben. (Természetesen itt is fel kell tüntetni az eredményt a folyamatban lévő és befejezett meccsek esetében.)
+_A csapatrészletező oldalon két fontos információ kell megjelenjen:_
+_A csapat mérkőzései időrendi sorrendben. (Természetesen itt is fel kell tüntetni az eredményt a folyamatban lévő és befejezett meccsek esetében.)_
 _A csapatban lévő összes játékos adatai: neve, születési dátuma, statisztikái (hány gólt, öngólt rúgott, illetve hány sárga és piros lapot kapott)._
 
 ### Új csapat hozzáadása (4 pont)
@@ -118,7 +118,7 @@ Ha már van feltöltött kép, és nem tölt fel fájlt, akkor maradjon meg az e
 
 ### Új játékos felvétele (2 pont)
 
-Az admin tudjon új játékost felvenni a csapatba annak részletező oldaláról indulva. Ehhez meg kell adjon minden kötelező adatot, tehát a játékos mezszámát, nevét és születési dátumát.
+_Az admin tudjon új játékost felvenni a csapatba annak részletező oldaláról indulva. Ehhez meg kell adjon minden kötelező adatot, tehát a játékos mezszámát, nevét és születési dátumát._ `Annak részletező oldaláról?`
 
 ### Meglévő játékos törlése (1 pont)
 

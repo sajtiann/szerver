@@ -3,10 +3,16 @@
 
 @section('content')
 <div class="container">
+    @if (Session::has('team_created'))
+        <div class="alert alert-primary">
+           <span>You have successfully created this team:</span>
+       </div>
+    @endif
     <div class="row justify-content-between">
         <div class="col-12 col-md-8">
             <h1>Details: {{$team->name}} </h1>
         </div>
+
         <div class="col-12 col-md-4">
             <div class="float-lg-end">
 
@@ -26,8 +32,42 @@
                     <th scope="col">Date of the Match</th>
                 </tr>
             </thead>
-            <tbody>
 
+            <tbody>
+                @foreach ($games->sortBy('start') as $game)
+                    @if ($game->away_team_id === $team->id || $game->home_team_id === $team->id)
+                    @php
+                    $date = \Carbon\Carbon::parse($game->start);
+                    $today = \Carbon\Carbon::today();
+                    $homeScore = 0;
+                    $awayScore = 0;
+                    foreach ($game->events as $event) {
+                        if ($event->type === 'goal') {
+                            $playerTeam = $event->player->team_id;
+                            if ($playerTeam === $game->home_team_id) {
+                                $homeScore++;
+                            } else {
+                                $awayScore++;
+                            }
+                        } elseif ($event->type === 'own_goal') {
+                            $playerTeam = $event->player->team_id;
+                            if ($playerTeam === $game->home_team_id) {
+                                $awayScore++;
+                            } else {
+                                $homeScore++;
+                            }
+                        }
+                    }
+                    $result = "$homeScore - $awayScore";
+                    @endphp
+                        <tr>
+                            <td>{{$game->home_team->name}}</td>
+                            <td>{{$game->away_team->name}}</td>
+                            <td>{{($game->finished || (!$game->finished && $date->lt($today))) ? $result : ""}}</td>
+                            <td>{{$game->start}}</td>
+                        </tr>
+                    @endif
+                @endforeach
             </tbody>
         </table>
 

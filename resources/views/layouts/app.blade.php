@@ -7,14 +7,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Custom title -->
-    <title>
-        @if (View::hasSection('title'))
-            @yield('title') |
-        @endif
-        {{ config('app.name', 'Laravel') }}
-    </title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
+    <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
@@ -76,27 +75,6 @@
         <main class="py-4">
             @yield('content')
         </main>
-
-        <footer class="mb-4">
-            <div class="container">
-                <hr>
-                <div class="d-flex flex-column align-items-center">
-                    <div>
-                        <span class="small">Basic blog</span>
-                        <span class="mx-1">·</span>
-                        <span class="small">Laravel {{ app()->version() }}</span>
-                        <span class="mx-1">·</span>
-                        <span class="small">PHP {{ phpversion() }}</span>
-                    </div>
-
-                    <div>
-                        <span class="small"><a href="https://github.com/szerveroldali">ELTE Server-side programming</a></span>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        @yield('scripts')
     </div>
 </body>
 </html>

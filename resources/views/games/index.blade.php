@@ -80,15 +80,23 @@
 
 @section('content')
 <div class="container">
+    @if (Session::has('game_deleted'))
+        <div class="alert alert-primary">
+            <span>You have successfully deleted the game.</span>
+        </div>
+    @endif
+    @if (Session::has('event_deleted'))
+        <div class="alert alert-primary">
+            <span>You have successfully deleted the event.</span>
+        </div>
+@endif
 <div class="row justify-content-between">
     <div class="col-12 col-md-8">
         <h1>Matches</h1>
     </div>
     <div class="col-12 col-md-4">
         <div class="float-lg-end">
-
-            <a href="{{ route('games.create')}}" role="button" class="btn btn-sm btn-success mb-1"><i class="fas fa-plus-circle"></i> Create game</a>
-
+                <a href="{{ route('games.create')}}" role="button" class="btn btn-sm btn-success mb-1"><i class="fas fa-plus-circle"></i> Create game</a>
         </div>
     </div>
 </div>
@@ -105,7 +113,7 @@
     @if (!$game->finished && $date->lt($today))
         <a href="{{ route('games.show', $game)}}" style="text-decoration: none">
             <div class="match-container current">
-                <img class="team-logo" src={{$game->home_team->image !== null ? $game->home_team->image : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Home Team Image">
+                <img class="team-logo" src={{$game->home_team->image ? ((Str::contains($game->home_team->image, 'https')) ?  $game->home_team->image : asset('storage/'.$game->home_team->image)) : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Home Team Image">
                 <span class="team-name">{{ $game->home_team->name}} ({{ $game->home_team->shortname}})</span>
                 @php
                     $homeScore = 0;
@@ -129,7 +137,7 @@
                     }
                 @endphp
                 <span class="score" >{{$homeScore}} - {{$awayScore}}</span>
-                <img class="team-logo" src={{$game->away_team->image !== null ? $game->away_team->image : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Away Team Image">
+                <img class="team-logo" src={{$game->away_team->image ? ((Str::contains($game->away_team->image, 'https')) ?  $game->away_team->image : asset('storage/'.$game->away_team->image)) : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Away Team Image">
                 <span class="team-name">{{ $game->away_team->name }} ({{ $game->away_team->shortname}})</span>
                 <span class="time">{{ $game->start }}</span>
             </div>

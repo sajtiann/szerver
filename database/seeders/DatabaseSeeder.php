@@ -270,19 +270,19 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Event::factory(2)->create([
             'game_id' => 9,
-            'player_id' => 7,
+            'player_id' => 52,
             'type' => 'own_goal',
         ]);
 
         \App\Models\Event::factory()->create([
             'game_id' => 10,
-            'player_id' => 36,
+            'player_id' => 9,
             'type' => 'red_card',
         ]);
 
         \App\Models\Event::factory()->create([
             'game_id' => 10,
-            'player_id' => 48,
+            'player_id' => 27,
             'type' => 'own_goal',
         ]);
 
