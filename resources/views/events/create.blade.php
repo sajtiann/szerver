@@ -51,6 +51,25 @@
             </div>
         </div>
 
+        <div class="form-group row mb-3">
+            <label for="type" class="col-sm-2 col-form-label py-0">Player*</label>
+            <div class="col-sm-10">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    @foreach ($players as $player)
+                        <option value="{{$player->name}}">Team: {{$player->team ? $player->team->name : "-"}}, {{$player->name}}, ({{$player->number}})</option>
+                        @if ($loop->last)
+                            @error('style')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        @endif
+                    @endforeach
+                  </select>
+            </div>
+        </div>
+
         <div class="text-center">
             <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Store</button>
         </div>

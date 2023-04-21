@@ -87,7 +87,7 @@ _Az egyes mezőkre jellemző alapvető validációs feltételek mellett ellenőr
 
 ### Meglévő mérkőzés módosítása (3 pont)
 
-Az admin felhasználó módosíthatja is a meglévő mérkőzéseket.
+_Az admin felhasználó módosíthatja is a meglévő mérkőzéseket._
 
 ### Mérkőzés törlése (1 pont)
 

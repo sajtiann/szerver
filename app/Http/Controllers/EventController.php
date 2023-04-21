@@ -30,7 +30,7 @@ class EventController extends Controller
         // }
 
         return view('events.create', [
-            'players' => Player::all(),
+            'players' => Player::orderBy('team_id')->get(),
         ]);
     }
 
@@ -45,7 +45,7 @@ class EventController extends Controller
                 'required',
                 Rule::in(Event::$types),
             ],
-            // 'player' => 'required',
+            'game_id' => 1,
         ]);
 
         Event::factory()->create($validated);

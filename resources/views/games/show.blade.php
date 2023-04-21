@@ -81,7 +81,7 @@
                 @endif
 
                 @can('update', $game)
-                    <a role="button" class="btn btn-sm btn-primary" href="#"><i class="far fa-edit"></i>Edit match</a>
+                    <a role="button" class="btn btn-sm btn-primary" href="{{ route('games.edit', $game) }}"><i class="far fa-edit"></i>Edit match (end the match)</a>
                 @endcan
 
                 @can('delete', $game)

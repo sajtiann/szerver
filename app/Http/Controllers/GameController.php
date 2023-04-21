@@ -17,7 +17,7 @@ class GameController extends Controller
     public function index()
     {
         return view('games.index', [
-            'games' => Game::orderBy('start')->get(),
+            'games' => Game::orderBy('start')->orderBy('number')->get(),
         ]);
 
         // DB::table('games')->orderBy('start', 'desc')->get()
@@ -72,7 +72,9 @@ class GameController extends Controller
      */
     public function edit(Game $game)
     {
-        //
+        return view('games.edit', [
+            'game' => $game,
+        ]);
     }
 
     /**
@@ -80,7 +82,19 @@ class GameController extends Controller
      */
     public function update(Request $request, Game $game)
     {
-        //
+        $validated = $request->validate([
+            'start' => 'required|date_format:Y-m-d\TH:i|after_or_equal:today',
+            'home_team_id' => 'required',
+            'away_team_id' => 'required|different:home_team_id',
+        ]);
+
+        $game->start = $validated['start'];
+        $game->start = $validated['home_team_id'];
+        $game->start = $validated['away_team_id'];
+        $game->save();
+        Session::flash('game_edited',$validated['start']);
+
+        return redirect()->route('games.show',$game);
     }
 
     /**
