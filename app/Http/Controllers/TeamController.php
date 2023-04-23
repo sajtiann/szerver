@@ -77,7 +77,9 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-        //
+        return view('teams.edit', [
+            'team' => $team,
+        ]);
     }
 
     /**
@@ -85,7 +87,26 @@ class TeamController extends Controller
      */
     public function update(Request $request, Team $team)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|unique:teams,name',
+            'shortname' => 'required|unique:teams,shortname|max:4',
+            'image' => 'nullable|file|mimes:jpg,png|max:4096',
+        ]);
+
+        $image_path = '';
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $image_path = 'image_'.Str::random(10).'.'.$file->getClientOriginalExtension();
+            Storage::disk('public')->put($image_path,$file->get());
+        }
+
+        $team->name = $validated['name'];
+        $team->shortname = $validated['shortname'];
+        $team->image = $image_path;
+        $team->save();
+        Session::flash('team_edited',$validated['name']);
+
+        return redirect()->route('teams.show',$team);
     }
 
     /**

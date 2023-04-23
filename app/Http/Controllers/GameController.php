@@ -89,8 +89,8 @@ class GameController extends Controller
         ]);
 
         $game->start = $validated['start'];
-        $game->start = $validated['home_team_id'];
-        $game->start = $validated['away_team_id'];
+        $game->home_team_id = $validated['home_team_id'];
+        $game->away_team_id = $validated['away_team_id'];
         $game->save();
         Session::flash('game_edited',$validated['start']);
 

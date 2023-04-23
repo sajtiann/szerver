@@ -96,7 +96,9 @@
     </div>
     <div class="col-12 col-md-4">
         <div class="float-lg-end">
-                <a href="{{ route('games.create')}}" role="button" class="btn btn-sm btn-success mb-1"><i class="fas fa-plus-circle"></i> Create game</a>
+                @can('create', App\Models\Game::class)
+                    <a href="{{ route('games.create')}}" role="button" class="btn btn-sm btn-success mb-1"><i class="fas fa-plus-circle"></i> Create game</a>
+                @endcan
         </div>
     </div>
 </div>

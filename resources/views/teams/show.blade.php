@@ -16,8 +16,13 @@
         <div class="col-12 col-md-4">
             <div class="float-lg-end">
 
-                <a href="{{ route('players.create')}}" role="button" class="btn btn-sm btn-success mb-1"><i class="fas fa-plus-circle"></i> Add Player</a>
+                @can('create', App\Models\Player::class)
+                    <a href="{{ route('players.create')}}" role="button" class="btn btn-sm btn-success "><i class="fas fa-plus-circle"></i> Add Player</a>
+                @endcan
 
+                @can('update', $team)
+                    <a role="button" class="btn btn-sm btn-primary" href="{{ route('teams.edit', $team) }}"><i class="far fa-edit"></i>Edit team</a>
+                @endcan
             </div>
         </div>
         <div class="d-flex justify-content-center align-items-center">

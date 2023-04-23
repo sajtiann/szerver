@@ -65,18 +65,31 @@
 @endsection
 
 @section('scripts')
-    <script>
-        const coverImageInput = document.querySelector('input#image');
-        const coverPreviewContainer = document.querySelector('#preview');
-        const coverPreviewImage = document.querySelector('img#preview_image');
-        coverImageInput.onchange = event => {
-            const [file] = coverImageInput.files;
-            if (file) {
-                coverPreviewContainer.classList.remove('d-none');
-                coverPreviewImage.src = URL.createObjectURL(file);
-            } else {
-                coverPreviewContainer.classList.add('d-none');
-            }
+<script>
+    const removeCoverInput = document.querySelector('input#remove_cover_image');
+    const coverImageSection = document.querySelector('#cover_image_section');
+    const coverImageInput = document.querySelector('input#cover_image');
+    const coverPreviewContainer = document.querySelector('#cover_preview');
+    const coverPreviewImage = document.querySelector('img#cover_preview_image');
+    // Render Blade to JS code:
+    // TODO: Use attached image
+    const defaultCover = `{{ asset('images/default_post_cover.jpg') }}`;
+
+    removeCoverInput.onchange = event => {
+        if (removeCoverInput.checked) {
+            coverImageSection.classList.add('d-none');
+        } else {
+            coverImageSection.classList.remove('d-none');
         }
-    </script>
+    }
+
+    coverImageInput.onchange = event => {
+        const [file] = coverImageInput.files;
+        if (file) {
+            coverPreviewImage.src = URL.createObjectURL(file);
+        } else {
+            coverPreviewImage.src = defaultCover;
+        }
+    }
+</script>
 @endsection

@@ -77,7 +77,9 @@
         <div class="col-12 col-md-4">
             <div class="float-lg-end">
                 @if (!$game->finished && $date->lt($today))
-                    <a href="{{ route('events.create')}}" role="button" class="btn btn-sm btn-success"><i class="fas fa-plus-circle"></i> Create Event</a>
+                    @can('create', App\Models\Event::class)
+                        <a href="{{ route('events.create')}}" role="button" class="btn btn-sm btn-success"><i class="fas fa-plus-circle"></i> Create Event</a>
+                    @endcan
                 @endif
 
                 @can('update', $game)
@@ -178,10 +180,12 @@
                     <th>Type of Event</th>
                     <th>Name of the Player</th>
                     <th>Team of the Player</th>
-                    @if (!$game->finished)
-                        <th> </th>
-                        <th> </th>
-                    @endif
+                    @can('update', $event)
+                        @if (!$game->finished)
+                            <th> </th>
+                            <th> </th>
+                        @endif
+                    @endcan
                 </tr>
                     @foreach ($game->events->sortBy('minute') as $event)
                         <tr>
@@ -192,7 +196,9 @@
                             <td>{{$event->player->name}}</td>
                             <td>{{$event->player->team->name}}</td>
                             @if (!$game->finished)
+                                @can('update', $event)
                                 <td><button type="button" class="btn btn-primary">Edit</button></td>
+                                @endcan
                                 @can('delete', $event)
                                     <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#delete-confirm-modal2">Delete
                                     </button></td>
@@ -223,6 +229,7 @@
                                             @method('DELETE')
                                             @csrf
                                         </form>
+
                                     </div>
                                 </div>
                             </div>

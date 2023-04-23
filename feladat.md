@@ -72,8 +72,8 @@ Az érintett játékost egy listából (pl. legördülő menü vagy rádiógombo
 
 ### Esemény visszavonása (1 pont)
 
-_Az admin felhasználó az egyes eseményeket vissza is vonhatja (törölheti), pl. téves rögzítés esetén._
-_Visszavonni csak addig lehet eseményeket, amíg a meccs folyamatban van. Lezárt mérkőzés eseményeihez nem lehet hozzányúlni._
+Az admin felhasználó az egyes eseményeket vissza is vonhatja (törölheti), pl. téves rögzítés esetén.
+Visszavonni csak addig lehet eseményeket, amíg a meccs folyamatban van. Lezárt mérkőzés eseményeihez nem lehet hozzányúlni.
 
 ### Meccs lezárása (1 pont)
 
@@ -82,7 +82,7 @@ A lezárt meccshez további esemény nem rögzíthető, illetve a meccs ezután 
 
 ### Új mérkőzés létrehozása (3 pont)
 
-`Az admin felhasználó új mérkőzéseket is kiírhat.`
+_Az admin felhasználó új mérkőzéseket is kiírhat._
 _Az egyes mezőkre jellemző alapvető validációs feltételek mellett ellenőrizni kell, hogy a kezdés időpontja jövőbeli, illetve a hazai és vendég csapat nem azonos._
 
 ### Meglévő mérkőzés módosítása (3 pont)
@@ -111,14 +111,14 @@ _A csapatban lévő összes játékos adatai: neve, születési dátuma, statisz
 _Az admin tudjon új csapatot felvenni a bajnokságba. Ehhez meg kell adjon minden kötelező adatot, de logó feltöltése opcionális!_
 _A logóhoz tartozó képfeltöltés ténylegesen legyen fájlfeltöltés, tehát nem elég csupán a kép nevét vagy egy külső URL-t eltárolni!_
 
-### Meglévő csapat módosítása (4 pont)
+### Meglévő csapat módosítása (4 pont) [?]
 
-Az admin a csapat részletező oldaláról átlépve tudja módosítani is a felvett csapatok adatait és/vagy logóját.
-Ha már van feltöltött kép, és nem tölt fel fájlt, akkor maradjon meg az előző kép; különben értelemszerűen le kell cserélni.
+_Az admin a csapat részletező oldaláról átlépve tudja módosítani is a felvett csapatok adatait és/vagy logóját._
+_Ha már van feltöltött kép, és nem tölt fel fájlt, akkor maradjon meg az előző kép; különben értelemszerűen le kell cserélni._
 
 ### Új játékos felvétele (2 pont)
 
-_Az admin tudjon új játékost felvenni a csapatba annak részletező oldaláról indulva. Ehhez meg kell adjon minden kötelező adatot, tehát a játékos mezszámát, nevét és születési dátumát._ `Annak részletező oldaláról?`
+_Az admin tudjon új játékost felvenni a csapatba annak részletező oldaláról indulva. Ehhez meg kell adjon minden kötelező adatot, tehát a játékos mezszámát, nevét és születési dátumát._
 
 ### Meglévő játékos törlése (1 pont)
 

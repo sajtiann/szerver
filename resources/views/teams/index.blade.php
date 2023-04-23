@@ -87,9 +87,9 @@
         </div>
         <div class="col-12 col-md-4">
             <div class="float-lg-end">
-
-                <a href="{{ route('teams.create')}}" role="button" class="btn btn-sm btn-success mb-1"><i class="fas fa-plus-circle"></i> Create team</a>
-
+                @can('create', App\Models\Team::class)
+                    <a href="{{ route('teams.create')}}" role="button" class="btn btn-sm btn-success mb-1"><i class="fas fa-plus-circle"></i> Create team</a>
+                @endcan
             </div>
         </div>
     </div>

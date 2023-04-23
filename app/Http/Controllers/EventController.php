@@ -40,19 +40,25 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'minute' => 'required',
+            'minute' => 'required|integer|between:1,90',
             'type' => [
                 'required',
                 Rule::in(Event::$types),
             ],
-            'game_id' => 1,
         ]);
 
-        Event::factory()->create($validated);
+        $event = Event::factory()->create([
+            'minute' => $validated['minute'],
+            'type' => $validated['type'],
+            'game_id' => 1,
+            'player_id' => 1,
+        ]);
+
         Session::flash('event_created');
         Session::flash('minute', $validated['minute']);
         Session::flash('type', $validated['type']);
         return redirect()->route('events.create');
+
     }
 
     /**
