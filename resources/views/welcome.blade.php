@@ -116,10 +116,10 @@ p {
         >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('games.index')}}">Matches</a>
+              <a class="nav-link" href="{{ route('games.index') }}">Matches</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('teams.index')}}">Teams</a>
+              <a class="nav-link" href="{{ route('teams.index') }}">Teams</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Table</a>

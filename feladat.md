@@ -111,7 +111,7 @@ _A csapatban lévő összes játékos adatai: neve, születési dátuma, statisz
 _Az admin tudjon új csapatot felvenni a bajnokságba. Ehhez meg kell adjon minden kötelező adatot, de logó feltöltése opcionális!_
 _A logóhoz tartozó képfeltöltés ténylegesen legyen fájlfeltöltés, tehát nem elég csupán a kép nevét vagy egy külső URL-t eltárolni!_
 
-### Meglévő csapat módosítása (4 pont) [?]
+### Meglévő csapat módosítása (4 pont)
 
 _Az admin a csapat részletező oldaláról átlépve tudja módosítani is a felvett csapatok adatait és/vagy logóját._
 _Ha már van feltöltött kép, és nem tölt fel fájlt, akkor maradjon meg az előző kép; különben értelemszerűen le kell cserélni._
