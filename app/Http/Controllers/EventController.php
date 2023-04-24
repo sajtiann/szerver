@@ -45,18 +45,20 @@ class EventController extends Controller
                 'required',
                 Rule::in(Event::$types),
             ],
+            'player_id' => 'required',
         ]);
 
         $event = Event::factory()->create([
             'minute' => $validated['minute'],
             'type' => $validated['type'],
             'game_id' => 1,
-            'player_id' => 1,
+            'player_id' => $validated['player_id'],
         ]);
 
         Session::flash('event_created');
         Session::flash('minute', $validated['minute']);
         Session::flash('type', $validated['type']);
+        Session::flash('player_id', $validated['player_id']);
         return redirect()->route('events.create');
 
     }

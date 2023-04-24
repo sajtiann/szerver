@@ -73,18 +73,19 @@
     <div class="row justify-content-between">
         <div class="col-12 col-md-8">
             <h1>Details: {{$game->home_team->name}} vs {{$game->away_team->name}} </h1>
+            <a href="{{ route('games.index')}}"><i class="fas fa-long-arrow-alt-left"></i> Back to the Matches page</a>
         </div>
         <div class="col-12 col-md-4">
             <div class="float-lg-end">
+                @can('update', $game)
+                    <a role="button" class="btn btn-sm btn-primary" href="{{ route('games.edit', $game) }}"><i class="far fa-edit"></i>Edit match</a>
+                @endcan
+
                 @if (!$game->finished && $date->lt($today))
                     @can('create', App\Models\Event::class)
                         <a href="{{ route('events.create')}}" role="button" class="btn btn-sm btn-success"><i class="fas fa-plus-circle"></i> Create Event</a>
                     @endcan
                 @endif
-
-                @can('update', $game)
-                    <a role="button" class="btn btn-sm btn-primary" href="{{ route('games.edit', $game) }}"><i class="far fa-edit"></i>Edit match (end the match)</a>
-                @endcan
 
                 @can('delete', $game)
                     @if (count($game->events) === 0)
@@ -201,7 +202,7 @@
                                 @endcan
                                 @can('delete', $event)
                                     <td><button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete-confirm-modal2"><i class="far fa-trash-alt">
-                                        <span></i>Delete</span>
+                                        Delete
                                     </button></td>
                                 @endcan
                             @endif
@@ -217,16 +218,15 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                            <button
-                                                type="button"
-                                                class="btn btn-danger"
-                                                onclick="document.getElementById('delete-event-form').submit();">
-                                                Yes, delete this event
-                                            </button>
-
                                             <form id="delete-event-form" action="{{ route('events.destroy', $event)}}" method="POST" class="d-none">
                                                 @method('DELETE')
                                                 @csrf
+
+                                                <button
+                                                type="submit"
+                                                class="btn btn-danger">
+                                                Yes, delete this event
+                                            </button>
                                             </form>
                                         </div>
                                     </div>
@@ -236,8 +236,6 @@
                     @endforeach
               </table>
           @endif
-
-        <a href="{{ route('games.index')}}"><i class="fas fa-long-arrow-alt-left"></i> Back to the Matches page</a>
 
 </div>
 

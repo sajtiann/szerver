@@ -10,7 +10,7 @@
 
     @if (Session::has('event_created'))
         <div class="alert alert-primary">
-            <span>The following event is created: </span><span>minute: {{session('minute')}}, type: {{session('type')}}, player: {{session('player')}}</span>
+            <span>The following event is created: </span><span>minute: {{session('minute')}}, type: {{session('type')}}, player: {{session('player_id')}}</span>
         </div>
     @endif
 
@@ -52,21 +52,28 @@
         </div>
 
         <div class="form-group row mb-3">
-            <label for="type" class="col-sm-2 col-form-label py-0">Player*</label>
+            <label for="player_id" class="col-sm-2 col-form-label py-0">Player*</label>
             <div class="col-sm-10">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Open this select menu</option>
-                    @foreach ($players as $player)
-                        <option value="{{$player->name}}">Team: {{$player->team ? $player->team->name : "-"}}, {{$player->name}}, ({{$player->number}})</option>
+                @foreach ($players as $player)
+                    <div class="form-check">
+                        <input
+                            class="form-check-input @error('player_id') is-invalid @enderror"
+                            type="radio"
+                            name="player_id"
+                            id="{{ $player->id }}"
+                            @checked(old('player_id') == $player->id)
+                            value="{{ $player->id }}"
+                        >
+                        <label class="form-check-label" for="{{ $player->id }}">
+                            <span>Id: {{$player->id}}, Team: {{$player->team ? $player->team->name : "-"}}, {{$player->name}}, ({{$player->number}})</span>
+                        </label>
                         @if ($loop->last)
-                            @error('style')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                            @error('player_id')
+                                <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         @endif
-                    @endforeach
-                  </select>
+                    </div>
+                @endforeach
             </div>
         </div>
 

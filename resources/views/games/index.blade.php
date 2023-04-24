@@ -89,7 +89,7 @@
         <div class="alert alert-primary">
             <span>You have successfully deleted the event.</span>
         </div>
-@endif
+    @endif
 <div class="row justify-content-between">
     <div class="col-12 col-md-8">
         <h1>Matches</h1>
@@ -165,10 +165,10 @@
     @if (!$game->finished && $date->gt($today))
     <a href="{{ route('games.show', $game)}}" style="text-decoration: none; color: black">
     <div class="match-container">
-        <img class="team-logo" src={{$game->home_team->image !== null ? $game->home_team->image : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Home Team Image">
+        <img class="team-logo" src={{$game->home_team->image ? ((Str::contains($game->home_team->image, 'https')) ?  $game->home_team->image : asset('storage/'.$game->home_team->image)) : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Home Team Image">
         <span class="team-name">{{ $game->home_team->name}} ({{ $game->home_team->shortname}})</span>
         <span class="score" >vs</span>
-        <img class="team-logo" src={{$game->away_team->image !== null ? $game->away_team->image : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Away Team Image">
+        <img class="team-logo" src={{$game->away_team->image ? ((Str::contains($game->away_team->image, 'https')) ?  $game->away_team->image : asset('storage/'.$game->away_team->image)) : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Away Team Image">
         <span class="team-name">{{ $game->away_team->name }} ({{ $game->away_team->shortname}})</span>
         <span class="time"> Match Date: {{ $game->start }}</span>
     </div>
@@ -194,7 +194,7 @@
     @if ($game->finished)
     <a href="{{ route('games.show', $game)}}" style="text-decoration: none; color: black">
     <div class="match-container">
-        <img class="team-logo" src={{$game->home_team->image !== null ? $game->home_team->image : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Home Team Image">
+        <img class="team-logo" src={{$game->home_team->image ? ((Str::contains($game->home_team->image, 'https')) ?  $game->home_team->image : asset('storage/'.$game->home_team->image)) : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Home Team Image">
         <span class="team-name">{{ $game->home_team->name}} ({{ $game->home_team->shortname}})</span>
         @php
             $homeScore = 0;
@@ -218,7 +218,7 @@
             }
         @endphp
         <span class="score" >{{$homeScore}} - {{$awayScore}}</span>
-        <img class="team-logo" src={{$game->away_team->image !== null ? $game->away_team->image : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Away Team Image">
+        <img class="team-logo" src={{$game->away_team->image ? ((Str::contains($game->away_team->image, 'https')) ?  $game->away_team->image : asset('storage/'.$game->away_team->image)) : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Away Team Image">
         <span class="team-name">{{ $game->away_team->name }} ({{ $game->away_team->shortname}})</span>
         <span class="time">{{ $game->start }}</span>
     </div>

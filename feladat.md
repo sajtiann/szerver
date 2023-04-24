@@ -34,7 +34,7 @@
 -   `Player` 1 : N `Event` kesz model
 -   `User` N : N `Team`
 
-### Modellek és seeder (4 pont)
+### Modellek és seeder (4 pont) `KÉSZ`
 
 _Minden modellből kerüljön tárolásra észszerű mennyiségben (pl. 10-15 csapat), valamint a köztük lévő kapcsolatokból is generálj!_
 _A seeder fedjen le minél több esetet, tehát legyenek pl. már lejátszott, folyamatban lévő és jövőbeli meccsek is, valamint változatos események az egyes meccseken belül!_
@@ -42,7 +42,7 @@ _Minden szükséges seedelés egyetlen parancs kiadására történjen meg: php 
 _Az egyszerű felhasználók csak userX@szerveroldali.hu (ahol X eleme természetes számok) e-mail címmel és password jelszóval jöjjenek létre az egyszerűség kedvéért!_
 _Egyetlen admin jogosultságú felhasználó legyen, akinek a bejelentkezési adatai fixen: admin@szerveroldali.hu - adminpwd_
 
-### Főoldal (1 pont)
+### Főoldal (1 pont) `KÉSZ`
 
 _Az alkalmazás gyökér útvonalán jelenjen meg egy statikus oldal, amelyen tájékoztatást kapunk arról, hogy milyen webhelyre érkeztünk, és a következő menüpontok közül választhatunk:_
 _mérkőzések_
@@ -50,7 +50,7 @@ _csapatok_
 _tabella_
 _kedvenceim_
 
-### Mérkőzések oldal (4 pont)
+### Mérkőzések oldal (4 pont) `LAPOZÁS?`
 
 _Ezt az oldalt bárki (vendég, bejelentkezett, admin) megtekintheti._
 _Az oldalon megjelenik az összes mérkőzés: a mérkőzésben részt vevő két csapat neve (vagy rövidítése), logója (ha van feltöltve, különben placeholder kép) és a meccs kezdési időpontja._
@@ -59,48 +59,48 @@ _A folyamatban lévő és befejezett mérkőzéseknél az aktuális eredmény is
 Lapozással biztosítsd, hogy csak bizonyos (pl. 10, 15, 20, stb.) számú mérkőzés jelenjen meg egyidejűleg az oldalon, utána lapozni kelljen! Ez alól kivételt képezhet a folyamatban lévő meccsek szekciója, amelyekről feltételezhetjük, hogy egyszerre viszonylag kevés van, és akár minden lapozott oldal tetején is szerepelhet. [?]
 _Egy adott mérkőzésre kattintva annak részletező oldalára jutunk._
 
-### Mérkőzésrészletező oldal (2 pont)
+### Mérkőzésrészletező oldal (2 pont) `KÉSZ`
 
 _Ezen az oldalon is láthatók a paraméterként kapott meccs alapvető adatai, illetve folyamatban lévő vagy befejezett mérkőzés esetén az eredmény is._
 _Időrendi sorrendben megjelenik az adott meccshez tartozó összes esemény. (pl. "7. perc, Unikornis FC, gól, Programo Zoltán")_
 
-### Új esemény rögzítése (3 pont)
+### Új esemény rögzítése (3 pont) `EVENTNEK ÁTADNI AZ ADOTT GAME ID-T`
 
 _Az admin felhasználó számára a mérkőzésrészletező oldalról (pl. az alján elhelyezett űrlapon vagy innen elérhető külön oldalon) lehetőség van új esemény rögzítésére egy folyamatban lévő mérkőzéshez._
-_Ehhez meg kell adnia a következőket: hányadik játékpercben (1 és 90 közötti egész), milyen típusú esemény (gól, öngól, sárga lap, piros lap) történt_ és ki az érintett játékos. Alapvetően nem szükséges külön kiválasztani (vagy tárolni) a csapatot, hiszen azt a játékos személye egyértelműen meghatározza.
-Az érintett játékost egy listából (pl. legördülő menü vagy rádiógombok) lehet kiválasztani, amely csapat és mezszám szerint rendezett.
+_Ehhez meg kell adnia a következőket: hányadik játékpercben (1 és 90 közötti egész), milyen típusú esemény (gól, öngól, sárga lap, piros lap) történt és ki az érintett játékos. Alapvetően nem szükséges külön kiválasztani (vagy tárolni) a csapatot, hiszen azt a játékos személye egyértelműen meghatározza._
+_Az érintett játékost egy listából (pl. legördülő menü vagy rádiógombok) lehet kiválasztani, amely csapat és mezszám szerint rendezett._
 
-### Esemény visszavonása (1 pont)
+### Esemény visszavonása (1 pont) `ISZONYAT BUGOS`
 
 Az admin felhasználó az egyes eseményeket vissza is vonhatja (törölheti), pl. téves rögzítés esetén.
 Visszavonni csak addig lehet eseményeket, amíg a meccs folyamatban van. Lezárt mérkőzés eseményeihez nem lehet hozzányúlni.
 
-### Meccs lezárása (1 pont)
+### Meccs lezárása (1 pont) `TRY?`
 
 Az admin felhasználó számára a mérkőzésrészletező oldalról lehetőség van a meccs lezárására, tehát befejezetté nyilvánítására.
 A lezárt meccshez további esemény nem rögzíthető, illetve a meccs ezután nem jelenik meg a folyamatban lévő mérkőzések szekciójában.
 
-### Új mérkőzés létrehozása (3 pont)
+### Új mérkőzés létrehozása (3 pont) `KÉSZ`
 
 _Az admin felhasználó új mérkőzéseket is kiírhat._
 _Az egyes mezőkre jellemző alapvető validációs feltételek mellett ellenőrizni kell, hogy a kezdés időpontja jövőbeli, illetve a hazai és vendég csapat nem azonos._
 
-### Meglévő mérkőzés módosítása (3 pont)
+### Meglévő mérkőzés módosítása (3 pont) `KÉSZ`
 
 _Az admin felhasználó módosíthatja is a meglévő mérkőzéseket._
 
-### Mérkőzés törlése (1 pont)
+### Mérkőzés törlése (1 pont) `KÉSZ`
 
 _Az admin felhasználó törölheti is a meglévő mérkőzéseket, amennyiben még nincs esemény rögzítve az adott meccshez!_
 
-### Csapatok listája (2 pont)
+### Csapatok listája (2 pont) `KÉSZ`
 
 _Ezt az oldalt bárki (vendég, bejelentkezett, admin) megtekintheti._
 _Az oldalon megjelenik az összes csapat neve, rövidítése és logója (ha van feltöltve, különben placeholder kép)._
 _A lista a csapatok neve szerint betűrendbe rendezve jelenik meg._
 _Az egyes csapatokra kattintva továbblépünk az adott csapat részletező oldalára._
 
-### Csapatrészletező oldal (2 pont)
+### Csapatrészletező oldal (2 pont) `KÉSZ`
 
 _A csapatrészletező oldalon két fontos információ kell megjelenjen:_
 _A csapat mérkőzései időrendi sorrendben. (Természetesen itt is fel kell tüntetni az eredményt a folyamatban lévő és befejezett meccsek esetében.)_

@@ -28,6 +28,7 @@
         <div class="d-flex justify-content-center align-items-center">
             <h4>The Team's Matches</h4>
         </div>
+
         <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -39,40 +40,49 @@
             </thead>
 
             <tbody>
+                @php
+                    $hasMatches = false;
+                @endphp
                 @foreach ($games->sortBy('start') as $game)
                     @if ($game->away_team_id === $team->id || $game->home_team_id === $team->id)
-                    @php
-                    $date = \Carbon\Carbon::parse($game->start);
-                    $today = \Carbon\Carbon::today();
-                    $homeScore = 0;
-                    $awayScore = 0;
-                    foreach ($game->events as $event) {
-                        if ($event->type === 'goal') {
-                            $playerTeam = $event->player->team_id;
-                            if ($playerTeam === $game->home_team_id) {
-                                $homeScore++;
-                            } else {
-                                $awayScore++;
-                            }
-                        } elseif ($event->type === 'own_goal') {
-                            $playerTeam = $event->player->team_id;
-                            if ($playerTeam === $game->home_team_id) {
-                                $awayScore++;
-                            } else {
-                                $homeScore++;
+                        @php
+                        $hasMatches = true;
+                        $date = \Carbon\Carbon::parse($game->start);
+                        $today = \Carbon\Carbon::today();
+                        $homeScore = 0;
+                        $awayScore = 0;
+                        foreach ($game->events as $event) {
+                            if ($event->type === 'goal') {
+                                $playerTeam = $event->player->team_id;
+                                if ($playerTeam === $game->home_team_id) {
+                                    $homeScore++;
+                                } else {
+                                    $awayScore++;
+                                }
+                            } elseif ($event->type === 'own_goal') {
+                                $playerTeam = $event->player->team_id;
+                                if ($playerTeam === $game->home_team_id) {
+                                    $awayScore++;
+                                } else {
+                                    $homeScore++;
+                                }
                             }
                         }
-                    }
-                    $result = "$homeScore - $awayScore";
-                    @endphp
-                        <tr>
-                            <td>{{$game->home_team->name}}</td>
-                            <td>{{$game->away_team->name}}</td>
-                            <td>{{($game->finished || (!$game->finished && $date->lt($today))) ? $result : ""}}</td>
-                            <td>{{$game->start}}</td>
-                        </tr>
+                        $result = "$homeScore - $awayScore";
+                        @endphp
+                            <tr>
+                                <td>{{$game->home_team->name}}</td>
+                                <td>{{$game->away_team->name}}</td>
+                                <td>{{($game->finished || (!$game->finished && $date->lt($today))) ? $result : ""}}</td>
+                                <td>{{$game->start}}</td>
+                            </tr>
                     @endif
                 @endforeach
+                    @if (!$hasMatches)
+                        <tr>
+                            <td colspan="4" style="text-align:center">No matches available for this team</td>
+                        </tr>
+                    @endif
             </tbody>
         </table>
 
@@ -91,8 +101,8 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($team->players as $player)
-                @php
+                @forelse ($team->players as $player)
+                    @php
                     $goals = 0;
                     $own_goals = 0;
                     $yellow_cards = 0;
@@ -108,16 +118,20 @@
                             $red_cards++;
                         }
                     }
-                @endphp
-                <tr>
-                    <td>{{$player->name}}</td>
-                    <td>{{$player->birthdate}}</td>
-                    <td>{{$goals}}</td>
-                    <td>{{$own_goals}}</td>
-                    <td>{{$yellow_cards}}</td>
-                    <td>{{$red_cards}}</td>
-                @endforeach
-                </tr>
+                    @endphp
+                    <tr>
+                        <td>{{$player->name}}</td>
+                        <td>{{$player->birthdate}}</td>
+                        <td>{{$goals}}</td>
+                        <td>{{$own_goals}}</td>
+                        <td>{{$yellow_cards}}</td>
+                        <td>{{$red_cards}}</td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="6" style="text-align:center">No players available for this team</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
