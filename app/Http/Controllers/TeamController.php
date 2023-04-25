@@ -91,13 +91,20 @@ class TeamController extends Controller
             'name' => 'required|unique:teams,name',
             'shortname' => 'required|unique:teams,shortname|max:4',
             'image' => 'nullable|file|mimes:jpg,png|max:4096',
+            'remove_image' => 'nullable|boolean'
         ]);
 
-        $image_path = '';
-        if($request->hasFile('image')){
+        $image_path = $team->image;
+        if(isset($validated['remove_image'])){
+            $image_path = null;
+        }
+        elseif($request->hasFile('image')){
             $file = $request->file('image');
             $image_path = 'image_'.Str::random(10).'.'.$file->getClientOriginalExtension();
             Storage::disk('public')->put($image_path,$file->get());
+        }
+        if ($image_path !== $team->image && $team->image !== null) {
+            Storage::disk('public')->delete($team->image);
         }
 
         $team->name = $validated['name'];

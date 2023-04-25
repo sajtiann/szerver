@@ -79,6 +79,9 @@ class PlayerController extends Controller
      */
     public function destroy(Player $player)
     {
-        //
+        $this->authorize('delete', $player);
+        Session::flash('player_deleted', $player['name']);
+        $player->delete();
+        return redirect()->route('teams.index');
     }
 }

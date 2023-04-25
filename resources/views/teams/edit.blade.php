@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('title', 'Edit team')
 
+<style>
+    img {
+        width: 20%;
+    }
+</style>
+
 @section('content')
 <div class="container">
     @can('update', $team)
@@ -51,20 +57,19 @@
             </div>
 
             <div class="form-group row mb-3" id="cover_image_section">
-                <label for="cover_image" class="col-sm-2 col-form-label">Cover image</label>
+                <label for="image" class="col-sm-2 col-form-label">Cover image</label>
                 <div class="col-sm-10">
                     <div class="form-group">
                         <div class="row">
                             <div class="col-12 mb-3">
-                                <input type="file" class="form-control-file @error('cover_image') is-invalid @enderror" id="cover_image" name="cover_image">
-                                @error('cover_image')
+                                <input type="file" class="form-control-file @error('image') is-invalid @enderror" id="image" name="image">
+                                @error('image')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                         </div>
                             <div id="cover_preview" class="col-12">
                                 <p>Cover preview:</p>
-                                {{-- TODO: Use attached image --}}
-                                <img id="cover_preview_image" src="{{$team->image ? ((Str::contains($team->image, 'https')) ?  $team->image : asset('storage/'.$team->image)) : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}}" alt="Cover preview">
+                                <img id="cover_preview_image" src={{$team->image ? ((Str::contains($team->image, 'https')) ?  $team->image : asset('storage/'.$team->image)) : "https://icon-library.com/images/football-icon/football-icon-3.jpg"}} alt="Cover preview">
                             </div>
                         </div>
                     </div>

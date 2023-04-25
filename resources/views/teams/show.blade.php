@@ -126,7 +126,17 @@
                         <td>{{$own_goals}}</td>
                         <td>{{$yellow_cards}}</td>
                         <td>{{$red_cards}}</td>
+                        @can('delete', $player)
+                            @if ($goals === 0 && $own_goals === 0 && $yellow_cards === 0 && $red_cards === 0)
+                            <td>
+                                <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete-confirm-modal">
+                                    Delete player
+                                </button>
+                            </td>
+                            @endif
+                        @endcan
                     </tr>
+
                 @empty
                     <tr>
                         <td colspan="6" style="text-align:center">No players available for this team</td>
@@ -136,4 +146,33 @@
         </table>
     </div>
 </div>
+
+{{-- <div class="modal fade" id="delete-confirm-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Confirm delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete the player: {{$player ? $player->name : ""}}?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button
+                    type="button"
+                    class="btn btn-danger"
+                    onclick="document.getElementById('delete-player-form').submit();">
+                    Yes, delete this player
+                </button>
+
+                <form id="delete-player-form" action="{{ route('players.destroy', $player)}}" method="POST" class="d-none">
+                    @method('DELETE')
+                    @csrf
+                </form>
+            </div>
+        </div>
+    </div>
+</div> --}}
+
 @endsection

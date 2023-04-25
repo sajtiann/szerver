@@ -106,19 +106,19 @@ _A csapatrészletező oldalon két fontos információ kell megjelenjen:_
 _A csapat mérkőzései időrendi sorrendben. (Természetesen itt is fel kell tüntetni az eredményt a folyamatban lévő és befejezett meccsek esetében.)_
 _A csapatban lévő összes játékos adatai: neve, születési dátuma, statisztikái (hány gólt, öngólt rúgott, illetve hány sárga és piros lapot kapott)._
 
-### Új csapat hozzáadása (4 pont)
+### Új csapat hozzáadása (4 pont) `KÉSZ`
 
 _Az admin tudjon új csapatot felvenni a bajnokságba. Ehhez meg kell adjon minden kötelező adatot, de logó feltöltése opcionális!_
 _A logóhoz tartozó képfeltöltés ténylegesen legyen fájlfeltöltés, tehát nem elég csupán a kép nevét vagy egy külső URL-t eltárolni!_
 
-### Meglévő csapat módosítása (4 pont)
+### Meglévő csapat módosítása (4 pont) `KÉSZ`
 
 _Az admin a csapat részletező oldaláról átlépve tudja módosítani is a felvett csapatok adatait és/vagy logóját._
 _Ha már van feltöltött kép, és nem tölt fel fájlt, akkor maradjon meg az előző kép; különben értelemszerűen le kell cserélni._
 
-### Új játékos felvétele (2 pont)
+### Új játékos felvétele (2 pont) `PLAYERNEK ÁTADNI AZ ADOTT TEAM ID-T`
 
-_Az admin tudjon új játékost felvenni a csapatba annak részletező oldaláról indulva. Ehhez meg kell adjon minden kötelező adatot, tehát a játékos mezszámát, nevét és születési dátumát._
+_Az admin tudjon új játékost felvenni_ a csapatba annak részletező oldaláról indulva. _Ehhez meg kell adjon minden kötelező adatot, tehát a játékos mezszámát, nevét és születési dátumát._
 
 ### Meglévő játékos törlése (1 pont)
 

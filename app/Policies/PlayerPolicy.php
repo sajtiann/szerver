@@ -45,7 +45,7 @@ class PlayerPolicy
      */
     public function delete(User $user, Player $player): bool
     {
-        //
+        return $user->is_admin;
     }
 
     /**
