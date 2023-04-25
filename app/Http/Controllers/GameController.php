@@ -20,7 +20,7 @@ class GameController extends Controller
     public function index()
     {
         return view('games.index', [
-            'games' => Game::orderBy('start')->orderBy('number')->paginate(9),
+            'games' => Game::orderBy('start')->orderBy('number')->simplePaginate(9),
         ]);
 
         // DB::table('games')->orderBy('start', 'desc')->get()

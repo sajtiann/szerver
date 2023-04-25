@@ -183,6 +183,10 @@
     </div>
 @endforelse
 
+<div class="d-flex justify-content-center">
+    {{ $games->links() }}
+</div>
+
 <div class="section-heading">
     <h2>Completed matches</h2>
 </div>
@@ -233,9 +237,7 @@
     </div>
 @endforelse
 
-    <div class="d-flex justify-content-center">
-        {{ $games->links() }}
-    </div>
+
 </div>
 @endsection
 

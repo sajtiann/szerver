@@ -120,9 +120,9 @@ _Ha már van feltöltött kép, és nem tölt fel fájlt, akkor maradjon meg az 
 
 _Az admin tudjon új játékost felvenni_ a csapatba annak részletező oldaláról indulva. _Ehhez meg kell adjon minden kötelező adatot, tehát a játékos mezszámát, nevét és születési dátumát._
 
-### Meglévő játékos törlése (1 pont)
+### Meglévő játékos törlése (1 pont) `TÖRLŐDIK DE NEM JÓ PLAYER`
 
-Az admin tudjon törölni olyan játékosokat, akikhez nem tartozik még esemény egy meccsen sem. Tehát azokat a játékosokat, akik letettek már valamit az asztalra, nem töröljük a jegyzőkönyvekből!
+_Az admin tudjon törölni olyan játékosokat, akikhez nem tartozik még esemény egy meccsen sem. Tehát azokat a játékosokat, akik letettek már valamit az asztalra, nem töröljük a jegyzőkönyvekből!_
 
 ### Tabella oldal (4 pont)
 
