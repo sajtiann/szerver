@@ -90,6 +90,7 @@
             <span>You have successfully deleted the event.</span>
         </div>
     @endif
+
 <div class="row justify-content-between">
     <div class="col-12 col-md-8">
         <h1>Matches</h1>
@@ -232,6 +233,9 @@
     </div>
 @endforelse
 
+    <div class="d-flex justify-content-center">
+        {{ $games->links() }}
+    </div>
 </div>
 @endsection
 

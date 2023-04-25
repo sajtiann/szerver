@@ -7,6 +7,9 @@ use App\Models\Game;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\Controller;
+use Illuminate\View\View;
+
 use Illuminate\Support\Facades\DB;
 
 class GameController extends Controller
@@ -17,7 +20,7 @@ class GameController extends Controller
     public function index()
     {
         return view('games.index', [
-            'games' => Game::orderBy('start')->orderBy('number')->get(),
+            'games' => Game::orderBy('start')->orderBy('number')->paginate(9),
         ]);
 
         // DB::table('games')->orderBy('start', 'desc')->get()
