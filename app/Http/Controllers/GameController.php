@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
 use App\Models\Game;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
-use Illuminate\View\View;
-
-use Illuminate\Support\Facades\DB;
 
 class GameController extends Controller
 {
@@ -23,7 +19,6 @@ class GameController extends Controller
             'games' => Game::orderBy('start')->orderBy('number')->simplePaginate(9),
         ]);
 
-        // DB::table('games')->orderBy('start', 'desc')->get()
     }
 
     /**
@@ -44,11 +39,6 @@ class GameController extends Controller
             'home_team_id' => 'required',
             'away_team_id' => 'required|different:home_team_id',
         ],
-        // [
-        //     'start.required' => "Kötelező megadni kezdési időpontot!",
-        //     'home_team_id.required' => "Kötelező megadni otthoni csapatot!",
-        //     'away_team_id.required' => "Kötelező megadni vendég csapatot!",
-        // ]
     );
 
         $game = Game::factory()->create([

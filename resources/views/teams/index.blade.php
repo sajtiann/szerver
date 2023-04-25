@@ -81,6 +81,11 @@
 
 @section('content')
 <div class="container">
+    @if (Session::has('player_deleted'))
+        <div class="alert alert-primary">
+           <span>You have successfully deleted the player</span>
+       </div>
+    @endif
     <div class="row justify-content-between">
         <div class="col-12 col-md-8">
             <h1>Teams</h1>

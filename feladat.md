@@ -70,10 +70,10 @@ _Az admin felhasználó számára a mérkőzésrészletező oldalról (pl. az al
 _Ehhez meg kell adnia a következőket: hányadik játékpercben (1 és 90 közötti egész), milyen típusú esemény (gól, öngól, sárga lap, piros lap) történt és ki az érintett játékos. Alapvetően nem szükséges külön kiválasztani (vagy tárolni) a csapatot, hiszen azt a játékos személye egyértelműen meghatározza._
 _Az érintett játékost egy listából (pl. legördülő menü vagy rádiógombok) lehet kiválasztani, amely csapat és mezszám szerint rendezett._
 
-### Esemény visszavonása (1 pont) `ISZONYAT BUGOS`
+### Esemény visszavonása (1 pont) `KÉSZ`
 
-Az admin felhasználó az egyes eseményeket vissza is vonhatja (törölheti), pl. téves rögzítés esetén.
-Visszavonni csak addig lehet eseményeket, amíg a meccs folyamatban van. Lezárt mérkőzés eseményeihez nem lehet hozzányúlni.
+_Az admin felhasználó az egyes eseményeket vissza is vonhatja (törölheti), pl. téves rögzítés esetén._
+_Visszavonni csak addig lehet eseményeket, amíg a meccs folyamatban van. Lezárt mérkőzés eseményeihez nem lehet hozzányúlni._
 
 ### Meccs lezárása (1 pont) `TRY?`
 
@@ -120,7 +120,7 @@ _Ha már van feltöltött kép, és nem tölt fel fájlt, akkor maradjon meg az 
 
 _Az admin tudjon új játékost felvenni_ a csapatba annak részletező oldaláról indulva. _Ehhez meg kell adjon minden kötelező adatot, tehát a játékos mezszámát, nevét és születési dátumát._
 
-### Meglévő játékos törlése (1 pont) `TÖRLŐDIK DE NEM JÓ PLAYER`
+### Meglévő játékos törlése (1 pont) `KÉSZ`
 
 _Az admin tudjon törölni olyan játékosokat, akikhez nem tartozik még esemény egy meccsen sem. Tehát azokat a játékosokat, akik letettek már valamit az asztalra, nem töröljük a jegyzőkönyvekből!_
 
