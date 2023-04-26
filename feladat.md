@@ -75,7 +75,7 @@ _Az érintett játékost egy listából (pl. legördülő menü vagy rádiógomb
 _Az admin felhasználó az egyes eseményeket vissza is vonhatja (törölheti), pl. téves rögzítés esetén._
 _Visszavonni csak addig lehet eseményeket, amíg a meccs folyamatban van. Lezárt mérkőzés eseményeihez nem lehet hozzányúlni._
 
-### Meccs lezárása (1 pont) `TRY?`
+### Meccs lezárása (1 pont)
 
 Az admin felhasználó számára a mérkőzésrészletező oldalról lehetőség van a meccs lezárására, tehát befejezetté nyilvánítására.
 A lezárt meccshez további esemény nem rögzíthető, illetve a meccs ezután nem jelenik meg a folyamatban lévő mérkőzések szekciójában.
